@@ -23,6 +23,5 @@ Java Bot that filters/blacklist certain words.
 ## Libraries/Dependencies Used
 - JDK 17.0.1
 - JDA 5.0.0
-=======
 
 
