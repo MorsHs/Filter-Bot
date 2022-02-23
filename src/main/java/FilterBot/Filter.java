@@ -1,6 +1,7 @@
 package FilterBot;
 
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.events.message.MessageUpdateEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
 
@@ -40,5 +41,20 @@ public class Filter extends ListenerAdapter {
             }
         }
         return false;
+    }
+    public static class EditedMessages extends ListenerAdapter{
+        @Override
+        public void onMessageUpdate(@NotNull MessageUpdateEvent event) {
+            Filter filter = new Filter();
+            String[] input = event.getMessage().getContentRaw().split(" ");
+            try {
+                if(filter.scanMessage(input) == true){
+                    event.getMessage().delete().queue();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            super.onMessageUpdate(event);
+        }
     }
 }
