@@ -10,7 +10,7 @@ import javax.security.auth.login.LoginException;
 
 public class Main extends Commands {
     public static String prefix = "?";
-    private final String TOKEN = "OTI4OTYyMjU0NjM5MDc1Mzg4.YdgZhA.4oBGqySsz6bNZONt0CI06lLTK_8";
+    private final String TOKEN = "INSERT TOKEN HERE";
 
     Main() throws LoginException {
         JDA jda = JDABuilder.createDefault(TOKEN).build();
